@@ -1,18 +1,13 @@
 *** Settings ***
 Documentation                          Pagina Principal
 
-Library                                Browser
+Library                                SeleniumLibrary
 
-Resource                               pages/preencher.resource
 
+*** Variables ***
+${Browser}        Chrome
+${Url}            https://buger-eats-qa.vercel.app/
 
 *** Keywords ***
-Clicar para se Cadastrar
-    New Page                https://buger-eats-qa.vercel.app/
-    Click                   xpath=//a[@href='/deliver'] >> text=Cadastre-se para fazer entregas
-
-Iniciar Teste
-    New Browser             headless=False
-
-Finalizar Teste
-    Take Screenshot
+Acessar pagina principal Buger Eats e clicar em cadastrar
+    Open Browser    url=${Url}    browser=${Browser}
